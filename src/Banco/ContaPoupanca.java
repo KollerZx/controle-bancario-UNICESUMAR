@@ -10,7 +10,7 @@ public class ContaPoupanca extends Conta{
             this.saldo = 0;
             this.pessoa = new Cliente(nome, cpf);
         }else {
-            System.out.println("Agência e número não devem ser maior que Zero");
+            System.out.println("Agência e número devem ser maior que Zero");
             return;
         }
     }
@@ -29,14 +29,30 @@ public class ContaPoupanca extends Conta{
     }
 
     @Override
+    public void depositar(double valor){
+        this.saldo += valor;
+    }
+
     public double getSaldo(){
         return this.saldo;
     }
 
     @Override
-    public String dadosConta() {
-        String dados = "Agência: "+ this.agencia + " Nº Conta: " + this.numero;
-        return dados;
+    public int getAgencia() {
+        return this.agencia;
+    }
+
+    @Override
+    public int getNumero() {
+        return this.numero;
+    }
+
+    @Override
+    public void dadosConta() {
+        System.out.println("Nome: " + this.pessoa.getNome());
+        System.out.println("CPF: " + this.pessoa.getCpf());
+        System.out.println("Agência: " + this.getAgencia());
+        System.out.println("Nº Conta: " + this.getNumero());
     }
 }
 

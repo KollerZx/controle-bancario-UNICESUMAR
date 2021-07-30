@@ -7,7 +7,7 @@ public class ContaCorrente extends Conta {
         if(agencia > 0 && numero > 0){
             this.agencia = agencia;
             this.numero = numero;
-            this.saldo = 100;
+            this.saldo = 0;
             this.pessoa = new Cliente(nome, cpf);
         }else {
             System.out.println("Agência e número devem ser maior que Zero");
@@ -29,22 +29,33 @@ public class ContaCorrente extends Conta {
     }
 
     @Override
-    protected double getSaldo() {
+    public void depositar(double valor){
+        this.saldo += valor;
+    }
+
+    public double getSaldo(){
         return this.saldo;
     }
 
     @Override
-    public String dadosConta() {
-        String dados = "Agência: "+ this.agencia + " Nº Conta: " + this.numero;
-        return dados;
+    public int getAgencia() {
+        return this.agencia;
     }
 
-    public void cadastro(){
-        System.out.println("Nome: "+ this.pessoa.getNome());
-        System.out.println("Cpf: "+ this.pessoa.getCpf());
-        System.out.println("Agencia: "+ this.agencia);
-        System.out.println("Numero: " + this.numero);
+    @Override
+    public int getNumero() {
+        return this.numero;
     }
+
+    @Override
+    public void dadosConta() {
+        System.out.println("Nome: " + this.pessoa.getNome());
+        System.out.println("CPF: " + this.pessoa.getCpf());
+        System.out.println("Agência: " + this.getAgencia());
+        System.out.println("Nº Conta: " + this.getNumero());
+    }
+
+
 
 
 

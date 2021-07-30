@@ -8,7 +8,12 @@ public abstract class Conta {
 
     public abstract void sacar(double valor);
 
-    protected abstract double getSaldo();
+    public void depositar(double valor){
+        this.saldo += valor;
+    }
+    public abstract int getAgencia() ;
 
-    public abstract String dadosConta();
+    public abstract int getNumero() ;
+
+    public abstract void dadosConta();
 }

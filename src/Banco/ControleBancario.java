@@ -3,13 +3,13 @@ package Banco;
 public class ControleBancario {
     public static void main(String[] args) {
 
-        ContaCorrente cc;
-        cc = new ContaCorrente("Henrique", "08508742012", 12,255854);
-        //cc.cadastro();
-        //ContaPoupanca cp = new ContaPoupanca("Mariana", "08745612523",0,25554);
-        //System.out.println(cc.dadosConta());
-        System.out.println("Saldo atual: "+ cc.getSaldo());
-        cc.sacar(100.00);
-        System.out.println("Saldo apos saque: " + cc.getSaldo());
+        System.out.println("CONTA CORRENTE");
+        ContaCorrente cc = new ContaCorrente("Henrique", "08508742012", 12,255854);
+        cc.dadosConta();
+
+        System.out.println("---------------------------------------------------------------------------");
+        System.out.println("CONTA POUPANÇA");
+        ContaPoupanca cp = new ContaPoupanca("Mariana", "08745612523",25,255540);
+        cp.dadosConta();
     }
 }

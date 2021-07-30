@@ -53,6 +53,7 @@ public class ContaPoupanca extends Conta{
         System.out.println("CPF: " + this.pessoa.getCpf());
         System.out.println("Agência: " + this.getAgencia());
         System.out.println("Nº Conta: " + this.getNumero());
+        System.out.println("Saldo: R$ " + this.getSaldo());
     }
 }
 

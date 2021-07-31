@@ -2,17 +2,10 @@ package Banco;
 
 public class ContaCorrente extends Conta {
     private final double TAXA = 0.10;
-    public ContaCorrente(String nome, String cpf, int agencia, int numero) {
-        super();
-        if(agencia > 0 && numero > 0){
-            this.agencia = agencia;
-            this.numero = numero;
-            this.saldo = 0;
-            this.pessoa = new Cliente(nome, cpf);
-        }else {
-            System.out.println("Agência e número devem ser maior que Zero");
-            return;
-        }
+    public ContaCorrente(String nome, String cpf, int agencia, int numero) throws Exception {
+        super(agencia,numero);
+        this.pessoa = new Cliente(nome, cpf);
+        this.saldo = 0;
 
     }
 
@@ -29,10 +22,6 @@ public class ContaCorrente extends Conta {
     }
 
     @Override
-    public void depositar(double valor){
-        this.saldo += valor;
-    }
-
     public double getSaldo(){
         return this.saldo;
     }
@@ -47,14 +36,6 @@ public class ContaCorrente extends Conta {
         return this.numero;
     }
 
-    @Override
-    public void dadosConta() {
-        System.out.println("Nome: " + this.pessoa.getNome());
-        System.out.println("CPF: " + this.pessoa.getCpf());
-        System.out.println("Agência: " + this.getAgencia());
-        System.out.println("Nº Conta: " + this.getNumero());
-        System.out.println("Saldo: R$ "+ this.getSaldo());
-    }
 
 
 
